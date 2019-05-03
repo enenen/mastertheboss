@@ -524,7 +524,7 @@
 					<!-- <protocol type="MPING" socket-binding="jgroups-mping"/> -->
 					<protocol
 						type="org.jgroups.protocols.kubernetes.KUBE_PING"
-						module="org.jgroups.kubernetes">
+						module="org.jgroups.kubernetes" socket-binding="jgroups-mping">
 						<property name="namespace">${env.OPENSHIFT_BUILD_NAMESPACE}</property>
 						<property name="masterHost">${env.KUBERNETES_SERVICE_HOST}</property>
 						<property name="masterPort">${env.KUBERNETES_SERVICE_PORT}</property>
@@ -728,7 +728,7 @@
 			interface="private"
 			multicast-address="${jboss.default.multicast.address:230.0.0.4}"
 			multicast-port="45700" />
-		<socket-binding name="jgroups-tcp" interface="public"
+		<socket-binding name="jgroups-tcp" interface="private"
 			port="7600" />
 		<socket-binding name="jgroups-udp" interface="private"
 			port="55200"
