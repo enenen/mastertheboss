@@ -504,9 +504,7 @@
 			<stacks>
 				<stack name="udp">
 					<transport type="UDP" socket-binding="jgroups-udp" />
-					<protocol
-						type="org.jgroups.protocols.kubernetes.KUBE_PING"
-						module="org.jgroups.kubernetes" socket-binding="jgroups-mping" />
+					<protocol type="PING"/>
 					<protocol type="MERGE3" />
 					<protocol type="FD_SOCK" />
 					<protocol type="FD_ALL" />
@@ -524,21 +522,24 @@
 					<!-- <protocol type="MPING" socket-binding="jgroups-mping"/> -->
 					<protocol
 						type="org.jgroups.protocols.kubernetes.KUBE_PING"
-						module="org.jgroups.kubernetes" socket-binding="jgroups-mping">
-						<property name="namespace">${env.OPENSHIFT_BUILD_NAMESPACE}</property>
-						<property name="masterHost">${env.KUBERNETES_SERVICE_HOST}</property>
-						<property name="masterPort">${env.KUBERNETES_SERVICE_PORT}</property>
-					</protocol>
-					<protocol type="MERGE3" />
-					<protocol type="FD_SOCK" socket-binding="jgroups-tcp-fd" />
-					<protocol type="FD" />
-					<protocol type="VERIFY_SUSPECT" />
-					<protocol type="pbcast.NAKACK2" />
-					<protocol type="UNICAST3" />
-					<protocol type="pbcast.STABLE" />
-					<protocol type="pbcast.GMS" />
-					<protocol type="MFC" />
-					<protocol type="FRAG2" />
+						module="org.jgroups.kubernetes" socket-binding="jgroups-mping" />
+<!-- 					<protocol -->
+<!-- 						type="org.jgroups.protocols.kubernetes.KUBE_PING" -->
+<!-- 						module="org.jgroups.kubernetes" socket-binding="jgroups-mping"> -->
+<!-- 						<property name="namespace">${env.OPENSHIFT_BUILD_NAMESPACE}</property> -->
+<!-- 						<property name="masterHost">${env.KUBERNETES_SERVICE_HOST}</property> -->
+<!-- 						<property name="masterPort">${env.KUBERNETES_SERVICE_PORT}</property> -->
+<!-- 					</protocol> -->
+					<protocol type="MERGE3"/>
+                    <protocol type="FD_SOCK"/>
+                    <protocol type="FD_ALL"/>
+                    <protocol type="VERIFY_SUSPECT"/>
+                    <protocol type="pbcast.NAKACK2"/>
+                    <protocol type="UNICAST3"/>
+                    <protocol type="pbcast.STABLE"/>
+                    <protocol type="pbcast.GMS"/>
+                    <protocol type="MFC"/>
+                    <protocol type="FRAG3"/>
 				</stack>
 			</stacks>
 		</subsystem>
