@@ -709,6 +709,9 @@
 			<inet-address
 				value="${jboss.bind.address.private:127.0.0.1}" />
 		</interface>
+		<interface name="eth0">	
+            <nic name="eth0"/>	
+		</interface>
 	</interfaces>
 	<socket-binding-group name="standard-sockets"
 		default-interface="public"
@@ -730,7 +733,7 @@
 			interface="private"
 			multicast-address="${jboss.default.multicast.address:230.0.0.4}"
 			multicast-port="45700" />
-		<socket-binding name="jgroups-tcp" interface="private"
+		<socket-binding name="jgroups-tcp" interface="eth0"
 			port="7600" />
 		<socket-binding name="jgroups-udp" interface="private"
 			port="55200"
