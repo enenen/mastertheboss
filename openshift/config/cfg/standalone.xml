@@ -403,7 +403,7 @@
             <stacks>
                 <stack name="udp">
                     <transport type="UDP" socket-binding="jgroups-udp"/>
-                    <protocol type="PING"/>
+                    <protocol type="openshift.KUBE_PING" socket-binding="jgroups-mping"/>
                     <protocol type="MERGE3"/>
                     <protocol type="FD_SOCK"/>
                     <protocol type="FD_ALL"/>
@@ -418,11 +418,12 @@
                 </stack>
                 <stack name="tcp">
                     <transport type="TCP" socket-binding="jgroups-tcp"/>
-                    <protocol type="org.jgroups.protocols.kubernetes.KUBE_PING" module="org.jgroups.kubernetes">
-                    	<property name="namespace">${env.OPENSHIFT_BUILD_NAMESPACE}</property>
-                        <property name="masterHost">${env.KUBERNETES_SERVICE_HOST}</property>
-                        <property name="masterPort">${env.KUBERNETES_SERVICE_PORT}</property>
-                    </protocol>
+                    <protocol type="openshift.KUBE_PING" socket-binding="jgroups-mping"/>
+<!--                     <protocol type="org.jgroups.protocols.kubernetes.KUBE_PING" module="org.jgroups.kubernetes"> -->
+<!--                     	<property name="namespace">${env.OPENSHIFT_BUILD_NAMESPACE}</property> -->
+<!--                         <property name="masterHost">${env.KUBERNETES_SERVICE_HOST}</property> -->
+<!--                         <property name="masterPort">${env.KUBERNETES_SERVICE_PORT}</property> -->
+<!--                     </protocol> -->
                     <protocol type="MERGE3"/>
                     <protocol type="FD_SOCK"/>
                     <protocol type="FD_ALL"/>
