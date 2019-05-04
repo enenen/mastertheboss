@@ -17,7 +17,7 @@
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>all</web-resource-name>
-			<url-pattern>/*</url-pattern>
+			<url-pattern>/faces/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>gncnuser</role-name>
