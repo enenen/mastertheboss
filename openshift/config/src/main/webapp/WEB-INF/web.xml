@@ -22,6 +22,9 @@
 		<auth-constraint>
 			<role-name>gncnuser</role-name>
 		</auth-constraint>
+		<user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
 	</security-constraint>
 	<context-param>
 		<param-name>com.sun.faces.enableRestoreView11Compatibility</param-name>
