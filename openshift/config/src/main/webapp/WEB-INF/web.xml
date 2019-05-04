@@ -4,8 +4,8 @@
 	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
-	<display-name>as7project</display-name>
-	<module-name>as7project</module-name>
+	<display-name>gncn</display-name>
+	<module-name>gncn</module-name>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
@@ -22,9 +22,6 @@
 		<auth-constraint>
 			<role-name>gncnuser</role-name>
 		</auth-constraint>
-		<user-data-constraint>
-			<transport-guarantee>NONE</transport-guarantee>
-		</user-data-constraint>
 	</security-constraint>
 	<context-param>
 		<param-name>com.sun.faces.enableRestoreView11Compatibility</param-name>
@@ -51,6 +48,7 @@
         <role-name>gncnuser</role-name>
     </security-role>
     <login-config>
-    <auth-method>KEYCLOAK</auth-method>
-    </login-config>
+		<auth-method>KEYCLOAK</auth-method>
+		<realm-name>gncn</realm-name>
+	</login-config>
 </web-app>
